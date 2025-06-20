@@ -18,9 +18,9 @@ function Home() {
         functional web apps with React, Node.js, Express, and MongoDB. I create
         responsive, clean, and user-friendly solutions ..!
       </p>
-      <a href="/projects" className="btn">
+      {/* <a href="/projects" className="btn">
         View My Work
-      </a>
+      </a> */}
     </section>
   );
 }
