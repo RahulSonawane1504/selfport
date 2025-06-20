@@ -1,17 +1,30 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">Rahul's Portfolio</Link>
+        <Link to="/">Rahul's Portfolio .. </Link>
       </div>
-      <ul className="nav-links">
+
+      {/* Hamburger Toggle Button */}
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </div>
+
+      {/* Navigation Links */}
+      <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li>
           <NavLink
             to="/"
             end
+            onClick={() => setIsOpen(false)}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Home
@@ -20,6 +33,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/about"
+            onClick={() => setIsOpen(false)}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             About
@@ -28,6 +42,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/projects"
+            onClick={() => setIsOpen(false)}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Projects
@@ -36,6 +51,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/contact"
+            onClick={() => setIsOpen(false)}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Contact
